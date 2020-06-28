@@ -2,9 +2,9 @@
 
 Contributors: acmethemes, codersantosh
 Tags: demo, dummydata, import, acmethemes, themes, oneclick, customizer, widget
-Requires at least: 4.5
-Tested up to: 4.9.1
-Stable tag: 1.0.7
+Requires at least: 4.8
+Tested up to: 5.3
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,9 @@ your site will be ready within few seconds.
 
 == Description ==
 
-Setup you site with dummy data easily. Import settings, widgets and content with one click.  Your dummy data must have ZIP file of xml, dat and wie file. Put all this three files on one ZIP folder and import the ZIP file and your site will be ready within few seconds.
+Setup your site theme from [Acme Themes](https://www.acmethemes.com/) site with template library dummy data easily. Import settings, widgets and content with one click. Acme Demo Setup requires [Advanced Import](https://wordpress.org/plugins/advanced-import/) Plugin to work normally.
+
+While you use Acme Demo Setup to import demo starter site, Images and demo files are fetches from respected theme Demo Sites form Acme Themes. This helps you to import starter dmeo site with a single click. You must accept [terms](https://www.acmethemes.com/terms-and-conditions/) and [privacy](https://www.acmethemes.com/privacy-policy/) to use Acme Demo Setup Plugin.
 
 == Installation ==
 
@@ -22,66 +24,22 @@ Setup you site with dummy data easily. Import settings, widgets and content with
 1. Visit 'Plugins > Add New'
 2. Search for 'acme-demo-setup'
 3. Activate Acme Demo Setup from Appearance > Plugins
-4. Go to the Appearance -> Acme Demo Setup and upload the ZIP file of dummy data.
+4. Go to the Appearance -> Demo Import
+5. Use available demo import
 
 = From WordPress.org =
 
 1. Download acme-demo-setup.zip
 2. Upload the 'acme-demo-setup' directory to your '/wp-content/plugins/' directory, using your favorite method (ftp, sftp, scp, etc...)
 3. Activate acme-demo-setup from your Appearance > Plugins page.
-4. Go to the Appearance -> Acme Demo Setup and upload the ZIP file of dummy data.
+4. Go to the Appearance -> Demo Import
+5. Use available demo import
 
 == Frequently Asked Questions ==
 
 = I have activated the plugin. Where to find the plugin page to import data? =
 
-You will find the import page in *wp-admin -> Appearance -> Acme Demo Setup*.
-
-= How to automatically assign Menu Locations after the importer is done? =
-
-You can do that, with the `acme_demo_setup_nav_data` action hook. The code would look something like this:
-
-`if( !function_exists( 'prefix_demo_nav_data') ){
-    function prefix_demo_nav_data(){
-        $demo_navs = array(
-            'one-page' => 'Front Page',
-            'primary'  => 'Inner Page'
-        );
-        return $demo_navs;
-    }
-}
-add_filter('acme_demo_setup_nav_data','prefix_demo_nav_data');`
-
-= How to automatically assign "Front page" & "Posts page" after the importer is done?  =
-You can do that, with the `acme_demo_setup_wp_options_data` action hook. The code would look something like this:
-
-
-`if( !function_exists( 'prefix_demo_wp_options_data') ){
-    function prefix_demo_wp_options_data(){
-        $wp_options = array(
-            'blogname'       => 'Theme Name',
-            'page_on_front'  => 'Home Page',
-            'page_for_posts' => 'Blog',
-        );
-        return $wp_options;
-    }
-}
-add_filter('acme_demo_setup_wp_options_data','prefix_demo_wp_options_data');`
-
-= What files we need to put on the demo zipped file ? =
-
-You need a zip file of three files,
-a. XML file for Data
-B. DAT file for Customizer 
-C. WIE file for Widgets
-and make the zip file of this theme files. 
-
-= Are you a theme author and want to integrate one click demo import on your own themes? =
-One click demo import is very helpful for your theme users, recommend this Acme Demo Setup plugin for better user experience for your theme users.
-
-= You are a theme user and facing the problem with the demo import? =
-Contact to your theme author and provide the link of this plugin and request the author to integrate this plugin for your theme. It will be very easy to make the entire site.
-
+You will find the import page in *wp-admin -> Appearance -> Demo Import*.
 
 = Got the issues on the plugin? =
 
@@ -93,6 +51,15 @@ If you have the issues on the plugin [Visit Support Page](https://wordpress.org/
 1. Acme Demo Setup
 
 == Changelog ==
+
+= 2.0.1
+* all screenshot image jpeg
+* optimized image size
+* api added for acmethemes demo
+* Minor changes
+
+= 2.0.0
+* Rewriting plugin using Advanced Import
 
 = 1.0.7
 * Fixed : Alternative File extension checker

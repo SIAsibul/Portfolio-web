@@ -7,6 +7,11 @@
  */
 
 /*
+* file for upgrade to pro
+*/
+require portfolio_web_file_directory('acmethemes/customizer/customizer-pro/class-customize.php');
+
+/*
 * file for customizer core functions
 */
 require portfolio_web_file_directory('acmethemes/customizer/customizer-core.php');

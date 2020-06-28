@@ -23,6 +23,11 @@ function portfolio_web_register_required_plugins() {
 		    'slug'      => 'siteorigin-panels',
 		    'required'  => false,
 	    ),
+        array(
+            'name'      => 'Gutentor',
+            'slug'      => 'gutentor',
+            'required'  => false,
+        )
     );
 	tgmpa( $plugins );
 }

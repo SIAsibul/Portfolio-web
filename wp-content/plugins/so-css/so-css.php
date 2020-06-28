@@ -2,7 +2,7 @@
 /*
 Plugin Name: SiteOrigin CSS
 Description: An advanced CSS editor from SiteOrigin.
-Version: 1.2.4
+Version: 1.2.8
 Author: SiteOrigin
 Author URI: https://siteorigin.com
 Plugin URI: https://siteorigin.com/css/
@@ -14,7 +14,7 @@ Text Domain: so-css
 // Handle the legacy CSS editor that came with SiteOrigin themes
 include plugin_dir_path( __FILE__ ) . 'inc/legacy.php';
 
-define( 'SOCSS_VERSION', '1.2.4' );
+define( 'SOCSS_VERSION', '1.2.8' );
 define( 'SOCSS_JS_SUFFIX', '.min' );
 
 /**
@@ -264,12 +264,12 @@ class SiteOrigin_CSS {
 			$this,
 			'display_admin_page'
 		) );
-		
-		if ( current_user_can( 'edit_theme_options' ) && isset( $_POST['siteorigin_custom_css_save'] ) ) {
+
+		if ( current_user_can( 'edit_theme_options' ) && isset( $_POST['siteorigin_custom_css'] ) ) {
 			check_admin_referer( 'custom_css', '_sononce' );
 			
 			// Sanitize CSS input. Should keep most tags, apart from script and style tags.
-			$custom_css = self::sanitize_css( filter_input( INPUT_POST, 'custom_css' ) );
+			$custom_css = self::sanitize_css( filter_input( INPUT_POST, 'siteorigin_custom_css' ) );
 			$socss_post_id = filter_input( INPUT_GET, 'socss_post_id', FILTER_VALIDATE_INT );
 			
 			$current = $this->get_custom_css( $this->theme, $socss_post_id );
@@ -374,7 +374,6 @@ class SiteOrigin_CSS {
 		$home_url = add_query_arg( 'so_css_preview', '1', $init_url );
 		
 		wp_localize_script( 'siteorigin-custom-css', 'socssOptions', array(
-			'themeCSS' => SiteOrigin_CSS::single()->get_theme_css(),
 			'homeURL' => $home_url,
 			'postCssUrlRoot' => wp_nonce_url( admin_url('admin-ajax.php?action=socss_get_post_css'), 'get_post_css' ),
 			'getRevisionsListAjaxUrl' => wp_nonce_url( admin_url('admin-ajax.php?action=socss_get_revisions_list'), 'get_revisions_list' ),
@@ -677,11 +676,10 @@ class SiteOrigin_CSS {
 		
 		// Remove all CSS comments
 		$regex = array(
-			"`^([\t\s]+)`ism"                       => '',
-			"`^\/\*(.+?)\*\/`ism"                   => "",
-			"`([\n\A;]+)\/\*(.+?)\*\/`ism"          => "$1",
-			"`([\n\A;\s]+)//(.+?)[\n\r]`ism"        => "$1\n",
-			"`(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+`ism" => "\n"
+			"`^([\t\s]+)`ism"                             => '',
+			"`^\/\*(.+?)\*\/`ism"                         => "",
+			"`(\A|[\n;]+)/\*[^*]*\*+(?:[^/*][^*]*\*+)*/`" => "$1",
+			"`(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+`ism"       => "\n"
 		);
 		$css = preg_replace( array_keys( $regex ), $regex, $css );
 		$css = preg_replace( '/\s+/', ' ', $css );
@@ -725,13 +723,12 @@ class SiteOrigin_CSS {
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
 			return;
 		}
-		
+
 		$regex = array(
-			"`^([\t\s]+)`ism"                       => '',
-			"`^\/\*(.+?)\*\/`ism"                   => "",
-			"`([\n\A;]+)\/\*(.+?)\*\/`ism"          => "$1",
-			"`([\n\A;\s]+)//(.+?)[\n\r]`ism"        => "$1\n",
-			"`(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+`ism" => "\n"
+			"`^([\t\s]+)`ism"                             => '',
+			"`^\/\*(.+?)\*\/`ism"                         => "",
+			"`(\A|[\n;]+)/\*[^*]*\*+(?:[^/*][^*]*\*+)*/`" => "$1",
+			"`(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+`ism"       => "\n"
 		);
 		
 		global $wp_styles;

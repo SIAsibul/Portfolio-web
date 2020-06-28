@@ -121,7 +121,7 @@ function has_block( $block_name, $post = null ) {
  *
  * @since 5.0.0
  *
- * @return array Array of dynamic block names.
+ * @return string[] Array of dynamic block names.
  */
 function get_dynamic_block_names() {
 	$dynamic_block_names = array();
@@ -311,12 +311,12 @@ function filter_block_kses( $block, $allowed_html, $allowed_protocols = array() 
  *
  * @since 5.3.1
  *
- * @param mixed          $value             The attribute value to filter.
- * @param array[]|string $allowed_html      An array of allowed HTML elements
- *                                          and attributes, or a context name
- *                                          such as 'post'.
- * @param string[]       $allowed_protocols Array of allowed URL protocols.
- * @return array The filtered and sanitized result.
+ * @param string[]|string $value             The attribute value to filter.
+ * @param array[]|string  $allowed_html      An array of allowed HTML elements
+ *                                           and attributes, or a context name
+ *                                           such as 'post'.
+ * @param string[]        $allowed_protocols Array of allowed URL protocols.
+ * @return string[]|string The filtered and sanitized result.
  */
 function filter_block_kses_value( $value, $allowed_html, $allowed_protocols = array() ) {
 	if ( is_array( $value ) ) {
@@ -449,8 +449,8 @@ function render_block( $block ) {
 	 *
 	 * @since 5.1.0
 	 *
-	 * @param string $pre_render The pre-rendered content. Default null.
-	 * @param array  $block      The block being rendered.
+	 * @param string|null $pre_render The pre-rendered content. Default null.
+	 * @param array       $block      The block being rendered.
 	 */
 	$pre_render = apply_filters( 'pre_render_block', null, $block );
 	if ( ! is_null( $pre_render ) ) {
@@ -505,7 +505,7 @@ function render_block( $block ) {
  * @since 5.0.0
  *
  * @param string $content Post content.
- * @return array Array of parsed block objects.
+ * @return array[] Array of parsed block objects.
  */
 function parse_blocks( $content ) {
 	/**
@@ -525,9 +525,8 @@ function parse_blocks( $content ) {
  * Parses dynamic blocks out of `post_content` and re-renders them.
  *
  * @since 5.0.0
- * @global WP_Post $post The post to edit.
  *
- * @param  string $content Post content.
+ * @param string $content Post content.
  * @return string Updated post content.
  */
 function do_blocks( $content ) {
@@ -580,4 +579,32 @@ function _restore_wpautop_hook( $content ) {
  */
 function block_version( $content ) {
 	return has_blocks( $content ) ? 1 : 0;
+}
+
+/**
+ * Registers a new block style.
+ *
+ * @since 5.3.0
+ *
+ * @param string $block_name       Block type name including namespace.
+ * @param array  $style_properties Array containing the properties of the style name, label, style (name of the stylesheet to be enqueued), inline_style (string containing the CSS to be added).
+ *
+ * @return boolean True if the block style was registered with success and false otherwise.
+ */
+function register_block_style( $block_name, $style_properties ) {
+	return WP_Block_Styles_Registry::get_instance()->register( $block_name, $style_properties );
+}
+
+/**
+ * Unregisters a block style.
+ *
+ * @since 5.3.0
+ *
+ * @param string $block_name       Block type name including namespace.
+ * @param array  $block_style_name Block style name.
+ *
+ * @return boolean True if the block style was unregistered with success and false otherwise.
+ */
+function unregister_block_style( $block_name, $block_style_name ) {
+	return WP_Block_Styles_Registry::get_instance()->unregister( $block_name, $block_style_name );
 }

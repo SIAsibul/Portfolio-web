@@ -3,8 +3,8 @@ Theme Name: Portfolio Web
 Theme URI: https://www.acmethemes.com/themes/portfolio-web
 Author: acmethemes
 Author URI: https://www.acmethemes.com/
-Description: Portfolio Web is minimalist and sleek WordPress theme designed particularly for a portfolio website. This theme is perfectly fit for both Personal and Corporate Portfolio websites. The trendy and lovely look of the theme will be a perfect one for showcasing your works online in a well-organized and professional manner. The theme can be updated effortlessly with its live customizer. By using its available widgets you can design the homepage and other pages of your site as you desire. It has good adaptability with all the modern electronic devices in the market so if you check your site in mobile phones and tablets it will certainly look good and adjusted. The theme also looks good in all the popular web browsers such as Google Chrome, Firefox, Opera, and Safari etc. The amazing features slider section on the front page makes it magnificent and appealing. The other exciting features of the theme include translation ready, breadcrumb options, background image, colors options, social media integration, copyright text and much more.
-Version: 1.0.0
+Description: Portfolio Web is minimalist and sleek WordPress theme designed particularly for a portfolio website. This theme is perfectly fit for both Personal and Corporate Portfolio websites. The trendy and lovely look of the theme will be a perfect one for showcasing your works online in a well-organized and professional manner. The theme can be updated effortlessly with its live customizer. By using its available widgets you can design the homepage and other pages of your site as you desire. It has good adaptability with all the modern electronic devices in the market so if you check your site in mobile phones and tablets it will certainly look good and adjusted. The theme also looks good in all the popular web browsers such as Google Chrome, Firefox, Opera, and Safari etc. The amazing features slider section on the front page makes it magnificent and appealing. The other exciting features of the theme include translation ready, breadcrumb options, background image, colours options, social media integration, copyright text and much more.
+Version: 2.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: portfolio-web
@@ -4003,7 +4003,7 @@ article.page .post-thumb a{
 }
 /*-- Animation effect */
 .acme-animate .init-animate{
-	visibility: none;
+	visibility: hidden;
 	-webkit-animation-duration: 0.5s;
 	animation-duration: 0.5s;
 	-webkit-animation-fill-mode: both;

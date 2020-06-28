@@ -37,6 +37,15 @@ do_action( 'portfolio_web_action_before_head' );?>
 
 <?php
 /**
+ * WordPress Default Hook
+ * Triggered after the opening <body> tag.
+ * wp_body_open hook
+ *
+ * @since WordPress 5.2
+ *
+ */
+do_action( 'wp_body_open' );
+/**
  * portfolio_web_action_before hook
  * @since Portfolio Web 1.0.0
  *

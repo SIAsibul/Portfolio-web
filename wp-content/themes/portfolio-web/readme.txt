@@ -1,10 +1,11 @@
 === Portfolio Web ===
+
 Contributors: acmethemes
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, portfolio, entertainment, education
 Requires at least: 4.8
-Tested up to: 5.0.3
-Requires PHP: 5.2.4
-Stable tag: 1.0.0
+Tested up to: 5.2.4
+Requires PHP: 5.6.20
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,29 +13,36 @@ Portfolio Web is minimalist and sleek WordPress theme designed particularly for 
 
 == Description ==
 
-Portfolio Web is minimalist and sleek WordPress theme designed particularly for a portfolio website. This theme is perfectly fit for both Personal and Corporate Portfolio websites. The trendy and lovely look of the theme will be a perfect one for showcasing your works online in a well-organized and professional manner. The theme can be updated effortlessly with its live customizer. By using its available widgets you can design the homepage and other pages of your site as you desire. It has good adaptability with all the modern electronic devices in the market so if you check your site in mobile phones and tablets it will certainly look good and adjusted. The theme also looks good in all the popular web browsers such as Google Chrome, Firefox, Opera, and Safari etc. The amazing features slider section on the front page makes it magnificent and appealing. The other exciting features of the theme include translation ready, breadcrumb options, background image, colors options, social media integration, copyright text and much more.
+Portfolio Web is minimalist and sleek WordPress theme designed particularly for a portfolio website. This theme is perfectly fit for both Personal and Corporate Portfolio websites. The trendy and lovely look of the theme will be a perfect one for showcasing your works online in a well-organized and professional manner. The theme can be updated effortlessly with its live customizer. By using its available widgets you can design the homepage and other pages of your site as you desire. It has good adaptability with all the modern electronic devices in the market so if you check your site in mobile phones and tablets it will certainly look good and adjusted. The theme also looks good in all the popular web browsers such as Google Chrome, Firefox, Opera, and Safari etc. The amazing features slider section on the front page makes it magnificent and appealing. The other exciting features of the theme include translation ready, breadcrumb options, background image, colours options, social media integration, copyright text and much more.
 
 == Frequently Asked Questions ==
 
 = How to Install Theme =
 
 1. In your admin panel, go to Appearance > Themes and click the Add New button and Search for Portfolio Web, OR
-2. If you have theme zip file, click Upload and choose File, then select the theme's .zip file. Click Install Now.
+2. If you have the theme zip file, click Upload and choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
 = Front Page/Home page Customization ==
 
 1. In the admin area, go to Pages > Add New
-3. Again In the admin area, go to Settings > Reading
-4. In Front page displays choose 'A static page (select below)' and select page for homepage/frontpage
-4. The sidebar "Home Main Content Area" will display in homepage
+2. Again In the admin area, go to Settings > Reading
+3. In Frontpage displays choose 'A static page (select below)' and select page for homepage/frontpage
+4. The sidebar "Home Main Content Area" will display in the homepage
 
 = How to change content or customize site? =
 1. In the admin area, go to Appearance > Customize
-2. You wll find different options in customizer
-2. Add/Edit Widgets, Page and Post
+2. You will find different options in customizer
+3. Add/Edit Widgets, Page and Post
 
-== Changelog ==
+== Change log ==
+
+= 2.0.0 - Oct 17 2019 =
+* Added : wp_body_open hook in header
+* Added : Gutentor Plugin in TGM
+* Added : wp-config.xml file for translation
+* Added : Upgrade to pro
+* Fixed : Screen Reader Text
 
 = 1.0.0 =
 * Submitted on WordPress dot org

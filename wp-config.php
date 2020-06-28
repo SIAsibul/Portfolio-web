@@ -23,7 +23,7 @@
 define( 'DB_NAME', 'portfoilo_web');
 
 /** MySQL database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'siasibul' );
 
 /** MySQL database password */
 define( 'DB_PASSWORD', '12345' );
@@ -55,6 +55,7 @@ define( 'SECURE_AUTH_SALT', 'M[$scdOw}m=tU8!bkrH&EvE2:j);{^RY5JYxXx :]ZWhY%vXV_A
 define( 'LOGGED_IN_SALT',   '~#&$.nY|j0!o_|!*vx)nO] sBL6;<;:)5(cqR`,sF#.!eW^U?oB8:V=TF1?Mvm t' );
 define( 'NONCE_SALT',       '_pK8$N-H6f9m;x`-?zH3/@M-sHC6k>]*e*xF3=ts;3&{0O1u[ESuc,ij2O FN[7.' );
 
+
 /**#@-*/
 
 /**
@@ -78,6 +79,7 @@ $table_prefix = 'wp_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define( 'WP_DEBUG', false );
+define( 'FS_METHOD', 'direct' );
 
 /* That's all, stop editing! Happy publishing. */
 

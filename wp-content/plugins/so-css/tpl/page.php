@@ -24,7 +24,7 @@ if ( ! empty( $current_revision ) ) {
 	</h2>
 
 
-	<?php if( isset($_POST['siteorigin_custom_css_save']) ) : ?>
+	<?php if( isset($_POST['siteorigin_custom_css']) ) : ?>
 		<div class="notice notice-success"><p><?php _e('Site design updated.', 'so-css') ?></p></div>
 	<?php endif; ?>
 
@@ -36,6 +36,9 @@ if ( ! empty( $current_revision ) ) {
 
 	<div id="poststuff">
 		<div id="so-custom-css-info">
+			<p class="submit">
+				<input type="submit" name="siteorigin_custom_css_save" class="button-primary" value="<?php esc_attr_e( $save_button_label ); ?>" />
+			</p>
 
 			<?php if( $this->display_teaser() ) : ?>
 				<div class="postbox">
@@ -97,14 +100,10 @@ if ( ! empty( $current_revision ) ) {
 			</div>
 
 			<div class="custom-css-container">
-				<textarea name="custom_css" id="custom-css-textarea" class="css-editor" rows="<?php echo max( 10, substr_count( $custom_css, "\n" ) + 1 ) ?>"><?php echo esc_textarea( $custom_css ) ?></textarea>
+				<textarea name="siteorigin_custom_css" id="custom-css-textarea" class="css-editor" rows="<?php echo max( 10, substr_count( $custom_css, "\n" ) + 1 ) ?>"><?php echo esc_textarea( $custom_css ) ?></textarea>
 				<?php wp_nonce_field( 'custom_css', '_sononce' ) ?>
 			</div>
 			<p class="description"><?php esc_html_e( $editor_description ) ?></p>
-
-			<p class="submit">
-				<input type="submit" name="siteorigin_custom_css_save" class="button-primary" value="<?php esc_attr_e( $save_button_label ); ?>" />
-			</p>
 
 			<div class="custom-css-preview">
 
